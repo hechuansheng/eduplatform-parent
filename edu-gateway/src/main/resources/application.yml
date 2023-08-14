@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: gateway
+    name: edu-gateway
   profiles:
     active: dev
   cloud:
@@ -14,7 +14,7 @@ spring:
       routes:
         ## 用户服务
         - id: user-service
-          uri: lb://user-service
+          uri: lb://edu-user-service
           predicates:
             - name: Path
               args:
@@ -22,7 +22,7 @@ spring:
                   - /user/**
         ## 认证鉴权中心
         - id: auth-center
-          uri: lb://auth-center
+          uri: lb://edu-auth-center
           predicates:
             - name: Path
               args:
