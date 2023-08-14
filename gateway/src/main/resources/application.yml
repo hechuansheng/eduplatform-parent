@@ -1,0 +1,30 @@
+server:
+  port: 18600
+
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: dev
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        ## 用户服务
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - name: Path
+              args:
+                patterns:
+                  - /user/**
+        ## 认证鉴权中心
+        - id: auth-center
+          uri: lb://auth-center
+          predicates:
+            - name: Path
+              args:
+                patterns:
+                  - /auth/**
