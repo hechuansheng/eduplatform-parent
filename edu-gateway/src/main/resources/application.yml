@@ -5,26 +5,8 @@ spring:
   application:
     name: edu-gateway
   profiles:
-    active: dev
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        ## 用户服务
-        - id: user-service
-          uri: lb://edu-user-service
-          predicates:
-            - name: Path
-              args:
-                patterns:
-                  - /user/**
-        ## 认证鉴权中心
-        - id: auth-center
-          uri: lb://edu-auth-center
-          predicates:
-            - name: Path
-              args:
-                patterns:
-                  - /auth/**
+    active: local
+
+#  config:
+#    import:
+#      - nacos:edu-gateway.yaml?refresh=true

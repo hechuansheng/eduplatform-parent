@@ -1,0 +1,8 @@
+server:
+  port: 18601
+
+spring:
+  application:
+    name: edu-auth-center
+  profiles:
+    active: local

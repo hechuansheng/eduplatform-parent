@@ -8,18 +8,28 @@
     <artifactId>eduplatform-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
+
     <modules>
         <module>edu-gateway</module>
         <module>edu-auth-center</module>
         <module>edu-user-service</module>
     </modules>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <spring-boot.version>2.7.6</spring-boot.version>
         <spring-cloud.version>2021.0.4</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
+
+        <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
+        <druid.version>1.1.22</druid.version>
+        <mybatis.version>2.2.2</mybatis.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <redisson.version>3.21.0</redisson.version>
+        <knife4j.version>3.0.3</knife4j.version>
     </properties>
 
     <repositories>
@@ -40,7 +50,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>${spring-boot.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -56,6 +66,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
@@ -94,7 +105,76 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.redisson/redisson-spring-data-26 -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-data-26</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>
