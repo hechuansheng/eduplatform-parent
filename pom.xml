@@ -13,6 +13,7 @@
         <module>edu-gateway</module>
         <module>edu-auth-center</module>
         <module>edu-user-service</module>
+        <module>edu-feign-api</module>
     </modules>
 
     <properties>
@@ -78,8 +79,9 @@
     </dependencies>
 
     <dependencyManagement>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
+
         <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>

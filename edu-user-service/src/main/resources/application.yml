@@ -1,8 +1,8 @@
 server:
-  port: 18100
+  port: 18101
 
 spring:
   application:
-    name: edu-auth-center
+    name: edu-user-service
   profiles:
     active: local

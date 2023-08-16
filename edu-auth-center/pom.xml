@@ -43,6 +43,12 @@
             <version>0.4.3</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.sjy.eduplatform</groupId>
+            <artifactId>edu-feign-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
     </dependencies>
 
 

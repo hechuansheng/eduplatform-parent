@@ -1,8 +1,30 @@
 server:
-  port: 18600
+  port: 18000
 
 spring:
   application:
     name: edu-gateway
   profiles:
     active: local
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        ## 认证鉴权中心
+        - id: auth-center
+          uri: lb://edu-auth-center
+          predicates:
+            - name: Path
+              args:
+                patterns:
+                  - /v1/*/auth/**
+        ## 用户服务
+        - id: user-service
+          uri: lb://edu-user-service
+          predicates:
+            - name: Path
+              args:
+                patterns:
+                  - /v1/*/user/**
