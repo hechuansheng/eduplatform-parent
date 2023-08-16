@@ -6,7 +6,3 @@ spring:
     name: edu-gateway
   profiles:
     active: local
-
-#  config:
-#    import:
-#      - nacos:edu-gateway.yaml?refresh=true
